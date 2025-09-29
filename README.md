@@ -17,15 +17,15 @@ pip install pyAesCrypt
 ## Usage
 
 ```bash
-python3 aes_crack.py <encrypted_file.aes> -w <wordlist.txt> -o <output_file>
+python3 crack_py_aes.py <encrypted_file.aes> -w <wordlist.txt> -o <output_file>
 ```
 
 ### Examples
 
 ```bash
-python3 aes_crack.py backup.aes -w /usr/share/wordlists/rockyou.txt -o decrypted.zip
+python3 crack_py_aes.py backup.aes -w /usr/share/wordlists/rockyou.txt -o decrypted.zip
 
-python3 aes_crack.py database.aes -w wordlist.txt -o recovered_data
+python3 crack_py_aes.py database.aes -w wordlist.txt -o recovered_data
 ```
 
 ## How It Works
@@ -42,10 +42,6 @@ The tool provides:
 - Cracking speed (passwords/second)
 - Successful password when found
 - Time statistics
-
-## Performance
-
-Typical cracking speed varies based on hardware but generally ranges from 50-200 passwords per second on modern systems.
 
 ## Legal Disclaimer
 
