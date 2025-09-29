@@ -1,12 +1,10 @@
-# AES-Crypt Wordlist Cracker
+# PyAES-Crypt Encrypted File Cracker
 
-A Python tool for cracking AES-encrypted files using wordlist-based password attacks. Supports files encrypted with pyAesCrypt and automatically extracts and parses JSON data from recovered archives.
+A Python tool for cracking AES-encrypted files using wordlist-based password attacks. Supports files encrypted with pyAesCrypt.
 
 ## Features
 
 - Wordlist-based password cracking for .aes files
-- Automatic ZIP archive extraction
-- JSON data parsing and credential extraction
 - Real-time progress tracking
 - Supports large wordlists (e.g., rockyou.txt)
 
@@ -19,15 +17,15 @@ pip install pyAesCrypt
 ## Usage
 
 ```bash
-python3 aes_crack.py <encrypted_file.aes> <wordlist.txt> [output.zip]
+python3 aes_crack.py <encrypted_file.aes> -w <wordlist.txt> -o <output_file>
 ```
 
 ### Examples
 
 ```bash
-python3 aes_crack.py backup.aes /usr/share/wordlists/rockyou.txt
+python3 aes_crack.py backup.aes -w /usr/share/wordlists/rockyou.txt -o decrypted.zip
 
-python3 aes_crack.py database_backup.zip.aes wordlist.txt decrypted.zip
+python3 aes_crack.py database.aes -w wordlist.txt -o recovered_data
 ```
 
 ## How It Works
@@ -35,18 +33,19 @@ python3 aes_crack.py database_backup.zip.aes wordlist.txt decrypted.zip
 1. Reads passwords from the provided wordlist
 2. Attempts to decrypt the .aes file with each password
 3. Stops when the correct password is found
-4. Extracts the decrypted archive
-5. Searches for and parses JSON files (e.g., db.json)
-6. Displays potential credentials and sensitive data
+4. Saves the decrypted file to the specified output location
 
 ## Output
 
 The tool provides:
-- Password attempt statistics
+- Real-time password attempt counter
 - Cracking speed (passwords/second)
-- Archive contents listing
-- Parsed JSON data
-- Extracted credentials and hashes
+- Successful password when found
+- Time statistics
+
+## Performance
+
+Typical cracking speed varies based on hardware but generally ranges from 50-200 passwords per second on modern systems.
 
 ## Legal Disclaimer
 
